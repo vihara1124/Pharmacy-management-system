@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Pharmacy Medicine Management System</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+	<style>
+        .navbar-expand-md bg-dark navbar-dark .navbar-brand,
+        .navbar-expand-md bg-dark navbar-dark .navbar-text{
+            color: blue;}
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+		<!-- Brand -->
+		<a class="navbar-brand" href="#" style="color: blue"><b>The Pharmacy</b></a>
+
+		<!-- Toggler/collapsibe Button -->
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<!-- Navbar links -->
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" th:href="@{/medicine}">Medicine
+						Management</a></li>
+			</ul>
+		</div>
+	</nav>
+	<br>
+	<br>
+
+	<div class="container">
+		<div class="row">
+			<div
+				class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1 class="text-center">Update Medicine</h1>
+				<div class="card-body">
+					<form th:action="@{/medicine/{idno} (idno=${medicine.idno})}" th:object="${medicine}" method="POST">
+
+						<div class="form-group">
+							<lable> Medicine Name </lable>
+							<input type="text" name="medicineName" th:field="*{medicineName}"
+								class="form-control" placeholder="Enter Medicine Name" />
+						</div>
+
+						<div class="form-group">
+							<lable> Medicine Description  </lable>
+							<input type="text" name="medicineDescription" th:field="*{medicineDescription}"
+								class="form-control" placeholder="Enter Medicine Description" />
+						</div>
+
+						<div class="form-group">
+							<lable> Medicine Amount </lable>
+							<input type="text" name="amount" th:field="*{amount}"
+								class="form-control" placeholder="Enter Medicine Amount" />
+						</div>
+
+						<div class="box-footer">
+							<button type="submit" class="btn btn-primary">Submit</button>
+						</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
